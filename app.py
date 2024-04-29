@@ -37,13 +37,18 @@ def hello_world():
 
 @app.route("/cleardb")
 def cleardb():
-    cursor.execute("DELETE FROM `product` WHERE 0")
+    cursor.execute("DELETE FROM `product`")
     mydb.commit()
     productobjects=[]
     return "Database cleared"
 
 @app.route("/products")
 def products():
+    productobjects=[]
+    cursor.execute("SELECT * FROM `product`")
+    records = cursor.fetchall()
+    for i in records:
+        productobjects.append(product(i[0], i[1], i[2], i[3]))
     return render_template('products.html', prods=productobjects)
 
 @app.route("/product/<id>")
@@ -66,7 +71,10 @@ def admin():
             return "Please fill all the fields"
         cursor.execute(f"INSERT INTO `product` (`name`, `price`, `des`) VALUES ('{name}', '{price}', '{description}')")
         mydb.commit()
-        productobjects.append(product(productobjects[-1].id+1, name, price, description))
+        if len(productobjects)==0:
+            productobjects.append(product(1, name, price, description))
+        else:
+            productobjects.append(product(productobjects[-1].id+1, name, price, description))
         return "Produkt tilføjet til database. Tilføj et billede til produktet i mappen 'static' og navngiv det samme som produktet."
         
     return render_template('admin.html')

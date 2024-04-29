@@ -21,7 +21,7 @@
     {%for prod in prods%}    
 
         <div class="product">
-            <img src="{{ url_for('static',filename=prod.image) }}" alt="Billede kommer snart">
+            <img  src="{{ url_for('static',filename=prod.image) }}" alt="Billede kommer snart">
             <h3>{{ prod.name }}</h3>
             <p>{{ prod.price }} kr</p>
             <p>{{ prod.description }}</p>
