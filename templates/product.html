@@ -4,7 +4,7 @@
         <title></title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/product.css') }}">
     </head>
     <body>
     <div class="menu-bar">
@@ -17,11 +17,19 @@
         </ul>
     </div>
 
-    <div>
+   <div class="product-container">
+    <div class="product-image">
         <img src="{{ url_for('static',filename=prod.image) }}" alt="">
-        <h3>{{ prod.name }}</h3>
-        <p>{{ prod.description }}</p>
-        <p>{{ prod.price }}</p>
     </div>
+
+    <div class="product-details">
+        <h3>{{ prod.name }}</h3>
+        <p class="price">{{ prod.price }} kr</p>
+        <p>{{ prod.description }} </p>
+        <button class="button">Udsolgt</button>
+        </div>
+    </div>
+
+
     </body>
 </html>

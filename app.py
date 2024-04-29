@@ -35,6 +35,13 @@ def hello_world():
 
     return render_template('index.html')
 
+@app.route("/cleardb")
+def cleardb():
+    cursor.execute("DELETE FROM `product` WHERE 0")
+    mydb.commit()
+    productobjects=[]
+    return "Database cleared"
+
 @app.route("/products")
 def products():
     return render_template('products.html', prods=productobjects)
@@ -68,4 +75,4 @@ def admin():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0')
