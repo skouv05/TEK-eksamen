@@ -17,13 +17,17 @@
         </ul>
     </div>
 
-   
-    <img id="front" src="{{ url_for('static',filename='placeholder.jpg') }}" style="margin: 0; padding: 0;" alt="">
+    <div class="prodiv">
+    {%for prod in prods%}    
+        <div class="product">
+            <img src="{{ url_for('static',filename=prod.image) }}" alt="">
+            <h3>{{ prod.name }}</h3>
+            <p>{{ prod.description }}</p>
+            <p>{{ prod.price }}</p>
 
-    <div class="toproducts">
-        <h2>Gå til Produkter</h2>
-        <a href="{{ url_for('products') }}" class="button">Produkter</a>
+            
+        </div>
+    {% endfor %}
     </div>
-
     </body>
 </html>
