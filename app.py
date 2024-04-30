@@ -35,7 +35,7 @@ def hello_world():
 
     return render_template('index.html')
 
-@app.route("/cleardb")
+@app.route("/cleardb") #rydder databasen. Fjern i færdig version
 def cleardb():
     cursor.execute("DELETE FROM `product`")
     mydb.commit()
@@ -79,6 +79,16 @@ def admin():
         
     return render_template('admin.html')
 
+@app.route("/delete/<id>") #Sletter produkt fra database. Fjern i færdig version
+def delete_item(id):
+    cursor.execute(f"DELETE FROM `product` WHERE `name` = '{id}'")
+    mydb.commit()
+    for i in productobjects:
+        if i.name == str(id):
+            productobjects.remove(i)
+            return redirect('/products')
+    return "Product not found"
+
 @app.route("/about")
 def about():
     return render_template('about.html')
@@ -98,4 +108,4 @@ def contact():
     return render_template('contact.html')
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0')
+    app.run(debug=True, host='0.0.0.0' )
