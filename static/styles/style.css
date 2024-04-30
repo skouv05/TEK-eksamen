@@ -173,3 +173,43 @@
     padding-left: 20%;
     padding-right: 20%;
 }
+.contantform {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.contantform label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.contantform input[type="text"],
+.contantform input[type="email"],
+.contantform textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.contantform textarea {
+    height: 150px;
+}
+
+.contantform button[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.contantform button[type="submit"]:hover {
+    background-color: #0056b3;
+}

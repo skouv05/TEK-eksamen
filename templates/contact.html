@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>HobbyBoksen</title>
+        <title></title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
     </head>
     <body>
+
     <div class="menu-bar">
         <ul>
             <li id="name"><a href="#">HobbyBoksen</a></li>
@@ -16,21 +17,19 @@
             <li><a href="{{url_for('contact')}}">Kontakt</a></li>
         </ul>
     </div>
+    
+        <form class="contantform" action="{{ url_for('contact')}}" method="POST">
+        <label for="name">Navn:</label>
+        <input type="text" id="nam" name="name" required>
 
-    <div class="prodiv">
-    {%for prod in prods%}    
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
 
-        <div class="product">
-            <img  src="{{ url_for('static',filename=prod.image) }}" alt="Billede kommer snart">
-            <h3>{{ prod.name }}</h3>
-            <p>{{ prod.price }} kr/md</p>
-            <p>{{ prod.description }}</p>
-            
-            <a href="{{ url_for('show_product', id=prod.name) }}" class="button">Se mere</a>
+        <label for="message">Besked:</label>
+        <textarea id="message" name="message" required></textarea>
 
-            
-        </div>
-    {% endfor %}
-    </div>
+        <button type="submit">Send</button>
+    </form>
+
     </body>
 </html>
