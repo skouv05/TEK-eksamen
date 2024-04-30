@@ -7,7 +7,7 @@ app = Flask(__name__)
 productobjects = []
 
 class product:
-    def __init__(self, id, name, price, description):
+    def __init__(self, id, name, description, price):
         self.id = id
         self.name = name
         self.price = price

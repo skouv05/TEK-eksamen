@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title></title>
+        <title>HobbyBoksen</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
@@ -23,7 +23,7 @@
         <div class="product">
             <img  src="{{ url_for('static',filename=prod.image) }}" alt="Billede kommer snart">
             <h3>{{ prod.name }}</h3>
-            <p>{{ prod.price }} kr</p>
+            <p>{{ prod.price }} kr/md</p>
             <p>{{ prod.description }}</p>
             
             <a href="{{ url_for('show_product', id=prod.name) }}" class="button">Se mere</a>
