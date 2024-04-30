@@ -160,3 +160,16 @@
 .formdata input[type="submit"]:hover {
     background-color: #0056b3;
 }
+
+.title{
+    text-align: center;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.abt{
+    margin-top: 5%;
+    margin-bottom: 5%;
+    padding-left: 20%;
+    padding-right: 20%;
+}
