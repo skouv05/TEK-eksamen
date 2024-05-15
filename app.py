@@ -35,12 +35,7 @@ def hello_world():
 
     return render_template('index.html')
 
-@app.route("/cleardb") #rydder databasen. Fjern i færdig version
-def cleardb():
-    cursor.execute("DELETE FROM `product`")
-    mydb.commit()
-    productobjects=[]
-    return "Database cleared"
+
 
 @app.route("/products")
 def products():
@@ -79,7 +74,7 @@ def admin():
         
     return render_template('admin.html')
 
-@app.route("/delete/<id>") #Sletter produkt fra database. Fjern i færdig version
+@app.route("/delete/<id>") 
 def delete_item(id):
     cursor.execute(f"DELETE FROM `product` WHERE `name` = '{id}'")
     mydb.commit()
